@@ -1,0 +1,8 @@
+Pillow==8.1.0
+keras==2.4.3
+numpy==1.19.5
+tensorflow-gpu>=2.3,<2.4
+requests==2.25.1
+opencv-python-headless==4.5.1.48
+pathlib==1.0.1
+h5py==2.10.0
