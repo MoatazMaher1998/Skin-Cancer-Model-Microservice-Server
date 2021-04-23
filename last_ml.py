@@ -1,9 +1,7 @@
 import tensorflow as tf
 import cv2
-import boto3
 import numpy as np
 import keras
-import requests
 from tensorflow.keras.models import Model
 from keras.layers import Activation, Dropout, Flatten, Dense,Input
 import sys
