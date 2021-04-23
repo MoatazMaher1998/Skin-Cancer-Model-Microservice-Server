@@ -1,7 +1,9 @@
 import tensorflow as tf
 import cv2
+import boto3
 import numpy as np
 import keras
+import requests
 from tensorflow.keras.models import Model
 from keras.layers import Activation, Dropout, Flatten, Dense,Input
 import sys
@@ -20,8 +22,6 @@ def INCV3():
   model = Model(inputs = base_model.input, outputs = x)
 
   return model
-#model = keras.models.load_model("/content/drive/MyDrive/Kaggle/bestmodelResNets.h5")
-
 model=INCV3()
 model = keras.models.load_model('./w.h5')
 
