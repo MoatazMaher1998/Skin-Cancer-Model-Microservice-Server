@@ -22,7 +22,7 @@ def INCV3():
 
   return model
 model=INCV3()
-model = keras.models.load_model('./w.h5')
+model = keras.models.load_model('./weights.h5')
 
 #img = cv2.imread('/content/drive/MyDrive/Kaggle/Dataset/Test/normal/NORMAL (1030).png')/255 
 #img = cv2.imread('/content/drive/MyDrive/Kaggle/Dataset/Test/covid-19/COVID (1046).png')/255 
