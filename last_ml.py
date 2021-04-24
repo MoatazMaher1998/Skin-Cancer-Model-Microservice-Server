@@ -44,7 +44,7 @@ x=base_model.output
 x = tf.keras.layers.Dense(7, activation='softmax')(x)
 model_test = tf.keras.models.Model(inputs = base_model.input, outputs = x)
 
-infile = open("weights_only",'rb')
+infile = open("weights",'rb')
 weights_update = pickle.load(infile)
 infile.close()
 
