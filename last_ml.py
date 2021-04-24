@@ -11,7 +11,7 @@ import tensorflow as tf
 import cv2
 import numpy as np
 import pickle
-
+import sys
 # from google.colab import drive
 # drive.mount('/content/drive')
 
@@ -50,7 +50,7 @@ infile.close()
 
 model_test.set_weights(weights=weights_update)
 
-img = cv2.imread('/content/drive/MyDrive/Kaggle/data/HAM10000_images_part_2/ISIC_0029311.jpg')/255 
+img = cv2.imread(sys.argv[1])/255 
 img_modify_size = cv2.resize(img,(224,224))
 img_modify_shape = img_modify_size.reshape(1,224,224,3)
 result = model_test(img_modify_shape)
