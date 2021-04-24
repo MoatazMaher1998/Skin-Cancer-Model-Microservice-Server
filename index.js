@@ -20,14 +20,14 @@ var s3 = new AWS.S3({
     secretAccessKey: SECRET_ACCESS_KEY,
 })
 var params = {
-    Key: 'weights.h5',
+    Key: 'weights',
     Bucket: BUCKET_NAME
 }
 s3.getObject(params, function(err, data) {
     if (err) {
         throw err
     }
-    fs.writeFileSync('./weights.h5', data.Body)
+    fs.writeFileSync('./weights', data.Body)
     console.log('file downloaded successfully')
 
 })
