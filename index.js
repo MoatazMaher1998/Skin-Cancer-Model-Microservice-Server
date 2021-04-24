@@ -3,13 +3,14 @@ var app = express();
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+require("dotenv").config();
 var multiparty = require('multiparty');
 const port = process.env.PORT || 8080;
 //_________________________________//
 const AWS = require('aws-sdk')
 const fs = require('fs')
-const ACCESS_KEY_ID = "AKIAXNLLRY7KXO3DEPEF"
-const SECRET_ACCESS_KEY = "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"
+const ACCESS_KEY_ID = "AKIAXNLLRY7K57RVYJ7D"
+const SECRET_ACCESS_KEY = process.env.AWS_Secret
 const BUCKET_NAME = "alexunicovidapi"
 app.get('/*',function(req,res){
     res.send("Welcome To Our API Post Your Data Please");
@@ -28,6 +29,7 @@ s3.getObject(params, function(err, data) {
     }
     fs.writeFileSync('./w.h5', data.Body)
     console.log('file downloaded successfully')
+
 })
 app.post('/API',function(req,res){
     var form = new multiparty.Form();
