@@ -15,22 +15,21 @@ const BUCKET_NAME = "alexunicovidapi"
 app.get('/*',function(req,res){
     res.send("Welcome To Our API Post Your Data Please");
 });
-var s3 = new AWS.S3({
-    accessKeyId: ACCESS_KEY_ID,
-    secretAccessKey: SECRET_ACCESS_KEY,
-})
-var params = {
-    Key: 'weights',
-    Bucket: BUCKET_NAME
-}
-s3.getObject(params, function(err, data) {
-    if (err) {
-        throw err
-    }
-    fs.writeFileSync('./weights', data.Body)
-    console.log('file downloaded successfully')
-
-})
+//var s3 = new AWS.S3({
+//    accessKeyId: ACCESS_KEY_ID,
+//    secretAccessKey: SECRET_ACCESS_KEY,
+//})
+//var params = {
+//    Key: 'weights',
+//    Bucket: BUCKET_NAME
+//}
+//s3.getObject(params, function(err, data) {
+//    if (err) {
+//       throw err
+//    }
+//    fs.writeFileSync('./weights', data.Body)
+//    console.log('file downloaded successfully')
+//})
 app.post('/API',function(req,res){
     var form = new multiparty.Form();
     form.parse(req, function(err, fields, files) {
@@ -38,8 +37,6 @@ app.post('/API',function(req,res){
         var spawn = require("child_process").spawn; 
         var process = spawn('python',["./last_ml.py",files['notmygilr'][0].path] );
                              process.stdout.on('data', function(data) { 
-             
-                              //   Database.submitData(data.toString(),req.body.email);
                                   console.log(data.toString());
                                   res.status(200);
                                   res.send(data.toString());
