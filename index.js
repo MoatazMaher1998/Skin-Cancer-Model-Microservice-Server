@@ -1,3 +1,4 @@
+const performance = require('perf_hooks');
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -30,7 +31,9 @@ app.get('/*',function(req,res){
 //    fs.writeFileSync('./weights', data.Body)
 //    console.log('file downloaded successfully')
 //})
+
 app.post('/API',function(req,res){
+    var start = new Date().getTime();
     var form = new multiparty.Form();
     form.parse(req, function(err, fields, files) {
         console.log(files['notmygilr'][0].path);
@@ -40,6 +43,9 @@ app.post('/API',function(req,res){
                                   console.log(data.toString());
                                   res.status(200);
                                   res.send(data.toString());
+                                  var end = new Date().getTime();
+                                  var time = (end - start) / 1000;
+                                  console.log(time + "  Seconds");
                                   process.kill();
                               });
     });

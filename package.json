@@ -12,6 +12,7 @@
     "aws-sdk": "^2.891.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "multiparty": "^4.2.2"
+    "multiparty": "^4.2.2",
+    "performance": "^1.4.0"
   }
 }
