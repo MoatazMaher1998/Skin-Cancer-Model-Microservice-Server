@@ -40,14 +40,15 @@ app.post('/API',function(req,res){
         console.log(files['img'][0].path);
         var spawn = require("child_process").spawn; 
         var process = spawn('python',["./last_ml.py",files['img'][0].path] );
-                             process.stdout.on('data', function(data) { 
-                                  console.log(data.toString());
-                                  res.status(200);
-                                  res.send(data.toString());
-                                  var end = new Date().getTime();
-                                  var time = (end - start) / 1000;
-                                  console.log(time + "  Seconds");
-                                  process.kill();
+                             process.stdout.on('data', async function(data) { 
+                                console.log(data.toString());
+                                const value = await data.toString();
+                                res.status(200);
+                                res.send(value);
+                                var end = new Date().getTime();
+                                var time = (end - start) / 1000;
+                                console.log(time + "  Seconds");
+                                process.kill();
                               });
     });
 });
