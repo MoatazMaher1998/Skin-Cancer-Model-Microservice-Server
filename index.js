@@ -43,8 +43,14 @@ app.post('/API',function(req,res){
                              process.stdout.on('data', async function(data) { 
                                 console.log(data.toString());
                                 const value = await data.toString();
+                                try {
                                 res.status(200);
                                 res.send(value);
+                                } catch (error) {
+                                    res.status(500);
+                                    res.send("Server Error");
+                                }
+                                
                                 var end = new Date().getTime();
                                 var time = (end - start) / 1000;
                                 console.log(time + "  Seconds");
