@@ -9,12 +9,9 @@
   "author": "Moataz Maher Farhoud",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
     "aws-sdk": "^2.897.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
-=======
->>>>>>> cfe23477cd8bcf7ec3adfe91a1dd3e87d335ea4e
     "express": "^4.17.1",
     "multiparty": "^4.2.2",
     "performance": "^1.4.0"
