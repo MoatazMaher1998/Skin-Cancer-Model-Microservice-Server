@@ -52,7 +52,6 @@ function aws_Handle(user_Key, filepath){
 app.get('/*',function(req,res){
     res.send("Welcome To Our Covid API Post Your Data Please");
 });
-
 app.post('/API',function(req,res){
     var tempFilePath;
     var start = new Date().getTime();
